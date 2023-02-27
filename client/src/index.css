@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .btn-display {
+        @apply px-5 py-2 text-gray-500 tracking-widest text-xs uppercase border border-[#242424] rounded-full cursor-pointer
+        transition-all hover:border-[#F43F5E]/40 hover:text-[#F43F5E]/40 hover:scale-105
+    }
+
+    .contact-input {
+        @apply outline-none bg-slate-400/10 rounded-sm border-b caret-[#F43F5E] border-[#242424] px-2 py-3 2xl:px-4 2xl:py-6
+        text-gray-500 placeholder-gray-500 transition-all focus:border-[#F43F5E]/40 focus:text-[#F43F5E]/40
+        placeholder:text-sm hover:border-[#F43F5E]/40
+    }
+}

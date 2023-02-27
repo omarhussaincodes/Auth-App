@@ -1,13 +1,11 @@
 import './App.css';
+import createRoutes from './routes/routes';
 
 function App() {
+  const routes = createRoutes();
   return (
     <div className="App">
-      <header>
-      </header>
-      <main>
-        <h1>Auth App</h1>
-      </main>
+      {routes}
     </div>
   );
 }
