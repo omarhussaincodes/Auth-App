@@ -1,10 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import avatar from '../assets/profile.png';
 import logo from '../assets/logo.png';
 
 function Sigin() {
+    const { state } = useLocation();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
         console.log(data);
@@ -14,7 +15,9 @@ function Sigin() {
 
             <div className="title flex flex-col items-center justify-center space-y-0 mx-auto my-2 px-6">
                 <img alt="logo-airbnb" src={logo} className='w-32 h-12 mt-4 object-contain 2xl:h-36 2xl:w-52' />
-                <h1 className='text-center text-xl font-mono text-gray-500 2xl:text-5xl'>Hello User</h1>
+                <h1 className='text-center text-lg font-mono text-gray-600 tracking-wider 2xl:text-5xl'>
+                    Hello! <span className='uppercase italic font-semibold'> {state}</span>
+                </h1>
             </div>
 
             <form className="flex flex-col space-y-6 mt-1 w-full 2xl:my-auto justify-center align-middle items-center mx-auto"
@@ -24,7 +27,7 @@ function Sigin() {
                     <img src={avatar} className="w-40 h-40 shadow-xl rounded-full 2xl:h-52 2xl:w-52" alt="avatar" />
                 </div>
 
-                <input className="contact-input w-96 px-3 2xl:w-5/6" type="text" placeholder='Password'
+                <input className="contact-input w-96 px-3 2xl:w-5/6" type="password" placeholder='Password'
                     {...register("password", { required: true })}
                     aria-invalid={errors.Name ? "true" : "false"} />
                 {errors.password?.type === 'required' && <p role="alert" className='px-1 py-0 text-left font-mono text-sm text-[#F43F5E]/70'>

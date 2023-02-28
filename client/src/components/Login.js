@@ -10,7 +10,7 @@ function Login() {
     const onSubmit = async (data) => {
         console.log(data);
         // go to signin page
-        navigate("/signin");
+        navigate("/signin", {state : data.userName});
     };
 
     return (
@@ -33,7 +33,7 @@ function Login() {
                 <input className="contact-input w-96 px-3 2xl:w-5/6" type="text" placeholder='Username'
                     {...register("userName", { required: true })}
                     aria-invalid={errors.Name ? "true" : "false"} />
-                {errors.UserName?.type === 'required' && <p role="alert" className='px-1 py-0 text-left font-mono text-sm text-[#F43F5E]/70'>
+                {errors.userName?.type === 'required' && <p role="alert" className='px-1 py-0 text-left font-mono text-sm text-[#F43F5E]/70'>
                     Username is required</p>}
 
                 <button type='submit'

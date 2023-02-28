@@ -22,7 +22,7 @@ function Signup() {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center h-screen w-96 xl:w-1/3 mx-auto mt-2 mb-2 py-6 rounded-lg drop-shadow-sm shadow-2xl'>
+    <div className='flex flex-col justify-center items-center w-96 xl:w-1/3 mx-auto mt-2 mb-2 py-6 rounded-lg drop-shadow-sm shadow-2xl'>
 
       <span className='text-4xl font-mono w-full text-center text-red-400 pt-4'>SignUp!</span>
 
@@ -42,27 +42,32 @@ function Signup() {
         <div className="flex flex-col items-center justify-center space-y-4">
 
           <input className='contact-input w-96 px-3 2xl:w-5/6' type="text" placeholder='Username'
-            {...register("userName", { required: true })}
+            {...register("username", { required: true })}
             aria-invalid={errors.Name ? "true" : "false"} />
-          {errors.UserName?.type === 'required' && <p role="alert" className='text-left font-mono text-sm text-[#F43F5E]/70'>
+          {errors.username?.type === 'required' && <p role="alert" className='text-left font-mono text-sm text-[#F43F5E]/70'>
             Username is required</p>}
 
-          <input className='contact-input w-96 px-3 2xl:w-5/6' type="password" placeholder='Password'
-            {...register("Password", { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g })}
-            aria-invalid={errors.Email ? "true" : "false"} />
-          {errors.Password?.type === 'required' &&
-            <p role="alert" className='text-center font-mono text-sm text-[#F43F5E]/70'>
-              Password is required</p>}
-          {errors.Password?.type === 'pattern' &&
-            <span role="alert" className='px-1 text-center overflow-ellipsis font-mono text-sm text-[#F43F5E]/70'>
-              Password should contain minimum eight characters, at least one letter and one number.</span>}
-
           <input className="contact-input w-96 px-3 2xl:w-5/6" type="text" placeholder='Email'
-            {...register("Email", { required: true, pattern: /\S+@\S+\.\S+/g })}
-            aria-invalid={errors.Email ? "true" : "false"} />
-          {errors.Email?.type === 'required' && <p role="alert" className='w-96 text-center font-mono text-sm text-[#F43F5E]/70'>
+            {...register("email", { required: true, pattern: /\S+@\S+\.\S+/g })}
+            aria-invalid={errors.email ? "true" : "false"} />
+          {errors.email?.type === 'required' && <p role="alert" className='w-96 text-center font-mono text-sm text-[#F43F5E]/70'>
             Email is required</p>}
 
+          <textarea className='contact-input w-96 px-3 2xl:w-5/6' type="text" placeholder='Address'
+            {...register("address", { required: true })}
+            aria-invalid={errors.Name ? "true" : "false"} />
+          {errors.address?.type === 'required' && <p role="alert" className='text-left font-mono text-sm text-[#F43F5E]/70'>
+            Address is required</p>}
+
+          <input className='contact-input w-96 px-3 2xl:w-5/6' type="password" placeholder='Password'
+            {...register("password", { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g })}
+            aria-invalid={errors.Email ? "true" : "false"} />
+          {errors.password?.type === 'required' &&
+            <p role="alert" className='text-center font-mono text-sm text-[#F43F5E]/70'>
+              Password is required</p>}
+          {errors.password?.type === 'pattern' &&
+            <span role="alert" className='px-1 text-center overflow-ellipsis font-mono text-sm text-[#F43F5E]/70'>
+              Password should contain minimum eight characters, at least one letter and one number.</span>}
 
           <button type='submit'
             className="bg-[#F43F5E] font-semibold rounded-md tracking-widest px-3 py-3 text-stone-100
